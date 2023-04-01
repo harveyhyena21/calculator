@@ -8,7 +8,7 @@ public class Main{
 
     }
 
-    public static int calculate(String s) {
+    public static double calculate(String s) {
         int size = s.length();
         int index1 = 0;
         int index2 = 0;
@@ -26,11 +26,11 @@ public class Main{
         }
 
         index1 = 0;
-        index2 = 0;
+        index2 = size;
 
 
         if (s.contains("^")) {
-            int carrotIndex = s.indexOf("*");
+            int carrotIndex = s.indexOf("^");
             for (int i = carrotIndex - 1; i >= 0; i--) {
                 try {
                     Integer.parseInt(s.substring(i, i + 1));
@@ -49,13 +49,37 @@ public class Main{
             }
 
             double answer = Math.pow(Integer.parseInt(s.substring(index1, carrotIndex)), Integer.parseInt(s.substring(carrotIndex + 1, index2)));
-            s = s.substring(0, index1) + answer + s.substring(index2 + 1);
+            s = s.substring(0, index1) + answer + s.substring(index2);
+        }
 
+        for (int i = 0; i < size; i++) {
+            if (s.substring(i, i + 1).equals("*")) {
+                int carrotIndex = s.indexOf("^");
+            for (int i = carrotIndex - 1; i >= 0; i--) {
+                try {
+                    Integer.parseInt(s.substring(i, i + 1));
+                } catch (Exception e) {
+                    index1 = i + 1;
+                    break;
+                }
+            }
+            for (int i = carrotIndex + 1; i < size; i++) {
+                try {
+                    Integer.parseInt(s.substring(i, i + 1));
+                } catch (Exception e) {
+                    index2 = i;
+                    break;
+                }
+            }
+
+            double answer = Math.pow(Integer.parseInt(s.substring(index1, carrotIndex)), Integer.parseInt(s.substring(carrotIndex + 1, index2)));
+            s = s.substring(0, index1) + answer + s.substring(index2);
+            }
         }
 
 
 
-        return Integer.parseInt(s);
+        return Double.parseDouble(s);
     }
 
 }
