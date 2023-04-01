@@ -34,7 +34,7 @@ public class Main{
                 try {
                     Integer.parseInt(s.substring(i, i + 1));
                 } catch (Exception e) {
-                    if (s.substring(i, i + 1).equals(".")) index1 = i + 1;
+                    if (s.substring(i, i + 1).equals("."));
                     else {
                         index1 = i + 1;
                         break;
@@ -45,7 +45,7 @@ public class Main{
                 try {
                     Integer.parseInt(s.substring(i, i + 1));
                 } catch (Exception e) {
-                    if (s.substring(i, i + 1).equals(".")) index2 = i;
+                    if (s.substring(i, i + 1).equals("."));
                     else {
                         index2 = i;
                         break;
@@ -101,7 +101,7 @@ public class Main{
                     try {
                         Integer.parseInt(s.substring(i, i + 1));
                     } catch (Exception e) {
-                        if (s.substring(i, i + 1).equals(".")) index1 = i + 1;
+                        if (s.substring(i, i + 1).equals("."));
                         else {
                             index1 = i + 1;
                             break;
@@ -112,7 +112,7 @@ public class Main{
                     try {
                         Integer.parseInt(s.substring(i, i + 1));
                     } catch (Exception e) {
-                        if (s.substring(i, i + 1).equals(".")) index2 = i;
+                        if (s.substring(i, i + 1).equals("."));
                         else {
                             index2 = i;
                             break;
@@ -173,7 +173,7 @@ public class Main{
                     try {
                         Integer.parseInt(s.substring(i, i + 1));
                     } catch (Exception e) {
-                        if (s.substring(i, i + 1).equals(".")) index1 = i + 1;
+                        if (s.substring(i, i + 1).equals("."));
                         else {
                             index1 = i + 1;
                             break;
@@ -184,7 +184,7 @@ public class Main{
                     try {
                         Integer.parseInt(s.substring(i, i + 1));
                     } catch (Exception e) {
-                        if (s.substring(i, i + 1).equals(".")) index2 = i;
+                        if (s.substring(i, i + 1).equals("."));
                         else {
                             index2 = i;
                             break;
