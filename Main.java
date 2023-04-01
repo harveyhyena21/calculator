@@ -52,28 +52,51 @@ public class Main{
             s = s.substring(0, index1) + answer + s.substring(index2);
         }
 
-        for (int i = 0; i < size; i++) {
-            if (s.substring(i, i + 1).equals("*")) {
-                int carrotIndex = s.indexOf("^");
-            for (int i = carrotIndex - 1; i >= 0; i--) {
-                try {
-                    Integer.parseInt(s.substring(i, i + 1));
-                } catch (Exception e) {
-                    index1 = i + 1;
-                    break;
+        for (int j = 0; j < size; j++) {
+            if (s.substring(j, j + 1).equals("*")) {
+                int starIndex = s.indexOf("*");
+                for (int i = starIndex - 1; i >= 0; i--) {
+                    try {
+                        Integer.parseInt(s.substring(i, i + 1));
+                    } catch (Exception e) {
+                        index1 = i + 1;
+                        break;
+                    }
                 }
-            }
-            for (int i = carrotIndex + 1; i < size; i++) {
-                try {
-                    Integer.parseInt(s.substring(i, i + 1));
-                } catch (Exception e) {
-                    index2 = i;
-                    break;
+                for (int i = starIndex + 1; i < size; i++) {
+                    try {
+                        Integer.parseInt(s.substring(i, i + 1));
+                    } catch (Exception e) {
+                        index2 = i;
+                        break;
+                    }
                 }
+
+                double answer = Integer.parseInt(s.substring(index1, starIndex)) * Integer.parseInt(s.substring(starIndex + 1, index2));
+                s = s.substring(0, index1) + answer + s.substring(index2);
             }
 
-            double answer = Math.pow(Integer.parseInt(s.substring(index1, carrotIndex)), Integer.parseInt(s.substring(carrotIndex + 1, index2)));
-            s = s.substring(0, index1) + answer + s.substring(index2);
+            if (s.substring(j, j + 1).equals("/")) {
+                int divideIndex = s.indexOf("/");
+                for (int i = divideIndex - 1; i >= 0; i--) {
+                    try {
+                        Integer.parseInt(s.substring(i, i + 1));
+                    } catch (Exception e) {
+                        index1 = i + 1;
+                        break;
+                    }
+                }
+                for (int i = divideIndex + 1; i < size; i++) {
+                    try {
+                        Integer.parseInt(s.substring(i, i + 1));
+                    } catch (Exception e) {
+                        index2 = i;
+                        break;
+                    }
+                }
+
+                double answer = Integer.parseInt(s.substring(index1, divideIndex)) / Integer.parseInt(s.substring(divideIndex + 1, index2));
+                s = s.substring(0, index1) + answer + s.substring(index2);
             }
         }
 
